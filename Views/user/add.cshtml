@@ -1,0 +1,40 @@
+﻿@using NEWS.Models
+@model user
+@{
+    ViewBag.Title = "add";
+    Layout = "~/Views/Shared/_layout.cshtml";
+}
+<div class="container justify-content-around pt-4">
+    <h2 class="col-8 text-center">Register New User</h2>
+    <form method="post" class="pt-2">
+        <table>
+            <tr>
+                <td>@Html.LabelFor(n => n.Name)</td>
+                <td>@Html.TextBoxFor(n => n.Name)</td>
+                <td>@Html.ValidationMessageFor(n=>n.Name)</td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(n => n.E_mail)</td>
+                <td>@Html.TextBoxFor(n => n.E_mail)</td>
+                <td>@Html.ValidationMessageFor(n=>n.E_mail)</td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(n => n.Password)</td>
+                <td>@Html.PasswordFor(n => n.Password)</td>
+                <td>@Html.ValidationMessageFor(n=>n.Password)</td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(n => n.Confirm_password)</td>
+                <td>@Html.PasswordFor(n => n.Confirm_password)</td>
+                <td>@Html.ValidationMessageFor(n=>n.Confirm_password)</td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" value="register" class="btn btn-warning"/>
+                </td>
+            </tr>
+        </table>
+    </form>
+    </div>
+
+

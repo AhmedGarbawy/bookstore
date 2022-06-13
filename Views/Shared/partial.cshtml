@@ -1,0 +1,27 @@
+﻿@using NEWS.Models
+@model List<news>
+
+
+<table>
+    <tr>
+        <th>@Model[0].ID</th>
+        <th>@Model[0].Tittle</th>
+        <th>@Model[0].pref</th>
+        <th>@Model[0].Descr</th>
+        <th>@Model[0].date</th>
+        <th>Catogery</th>
+        <th>News Editor</th>
+    </tr>
+    @foreach(var item in Model)
+            {
+                <tr>
+                    <td>@item.ID</td>
+                    <td>@item.Tittle</td>
+                    <td>@item.pref</td>
+                    <td>@item.Descr</td>
+                    <td>@item.date</td>
+                    <td>@item.category.NAME</td>
+                    <td>@item.user.Name</td>
+                </tr>
+            }
+</table>

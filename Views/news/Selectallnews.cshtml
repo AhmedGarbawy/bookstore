@@ -1,0 +1,71 @@
+﻿@using NEWS.Models
+@model List<news>
+@{
+    ViewBag.Title = "Selectallnews";
+    Layout = "~/Views/Shared/_layout.cshtml";
+}
+@section style{
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial;
+            font-size: 17px;
+        }
+
+        .container {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+            .container img {
+                vertical-align: middle;
+                height: 200px;
+            }
+
+            .container .content {
+                position: relative;
+                bottom: 0;
+                background: rgb(0, 0, 0); /* Fallback color */
+                background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
+                color: #f1f1f1;
+                width: 100%;
+                padding: 20px;
+            }
+
+        .c {
+            color: #f1f1f1;
+            background-color: black;
+            border-radius: 4px;
+        }
+
+        h2 {
+            text-align: center;
+            background-color: red;
+        }
+    </style>
+}
+<h2>all of news </h2>
+<div class="container-fluid">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+        <div class="col-4">
+            <img src="~/img/@item.photo" width="400" height="400" />
+            <label lass="badge badge-primary">@item.date</label>
+            <label lass="badge badge-dark">@Html.DisplayFor(n => item.category.NAME)</label>
+            <h3>@item.Tittle</h3>
+            <p>
+                @item.pref...
+                @Html.ActionLink("see more...", "MoreInfo", "news", new { id = item.ID }, new { @class = "c" })
+            </p>
+
+        </div>
+        }
+    </div>
+    </div>
+
+

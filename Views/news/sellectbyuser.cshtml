@@ -1,0 +1,33 @@
+﻿@using NEWS.Models
+@model List<news>
+@{
+    ViewBag.Title = "sellectbyuser";
+    Layout = "~/Views/Shared/_layout.cshtml";
+}
+<div class="container justify-content-around ">
+    <h2 class="col-8 text-center">All News</h2>
+    <table class="table table-dark justify-content-center">
+        <tr>
+            <th>Title</th>
+            <th>Pref</th>
+            <th>Description</th>
+            <th>Date and Time</th>
+            <th>Catogery</th>
+            <th>Operations</th>
+        </tr>
+        @foreach(var item in Model)
+            {
+                <tr>
+                    <td>@item.Tittle</td>
+                    <td>@item.pref</td>
+                    <td>@item.Descr</td>
+                    <td>@item.date</td>
+                    <td>@item.category.NAME</td>
+                    <td>@Html.ActionLink("edite","Edite","news",new { id=item.ID},null)</td>
+                    
+                </tr>
+            }
+        </table>
+        </div>
+
+

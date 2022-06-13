@@ -1,0 +1,20 @@
+﻿@using NEWS.Models
+@model SelectList
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_layout.cshtml";
+}
+
+<h2 class="text-center">Choose Catogery</h2>
+@Html.DropDownList("Category", Model, new { @class = "dropdown offset-5" })
+<div id="id1">
+
+</div>
+@section script{
+    <script>
+        $("#catogery").on("change", function () {
+            let id = $("#catogery").val();
+            $("#d1").load("/Category/selectNewsByCatogery/" + id);
+        })
+    </script>
+}

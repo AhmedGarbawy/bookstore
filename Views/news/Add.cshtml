@@ -1,0 +1,58 @@
+﻿@using NEWS.Models
+@model news
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Views/Shared/_layout.cshtml";
+}
+<div class="container justify-content-around ">
+    <h2 class="col-8 text-center">Add New News</h2>
+    <form method="post" enctype="multipart/form-data">
+        <table>
+            <tr>
+                <td>@Html.LabelFor(n => n.ID)</td>
+                <td>@Html.TextBoxFor(n => n.ID)</td>
+                <td> </td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(n => n.Tittle)</td>
+                <td>@Html.TextBoxFor(n => n.Tittle)</td>
+                <td>@Html.ValidationMessageFor(n=>n.Tittle)</td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(n => n.Descr)</td>
+                <td>@Html.TextAreaFor(n => n.Descr)</td>
+                <td>@Html.ValidationMessageFor(n=>n.Descr)</td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(n => n.pref)</td>
+                <td>@Html.TextAreaFor(n => n.pref)</td>
+                <td>@Html.ValidationMessageFor(n=>n.pref)</td>
+            </tr>
+
+            <tr>
+                <td>@Html.LabelFor(n => n.date)</td>
+                <td><input type="datetime-local" name="date" /></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(n => n.category_id)
+                </td>
+                <td>@Html.DropDownListFor(n=>n.category_id,(SelectList)ViewBag.list)</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(n => n.photo)
+                </td>
+                <td><input type="file" name="image" /></td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" value="Save" class="badge-primary col-3 offset-11" />
+                </td>
+            </tr>
+        </table>
+    </form>
+    </div>
+

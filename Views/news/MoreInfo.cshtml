@@ -1,0 +1,48 @@
+﻿@using NEWS.Models
+@model news
+@{
+    ViewBag.Title = "MoreInfo";
+    Layout = "~/Views/Shared/_layout.cshtml";
+}
+
+@section style {
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial;
+            font-size: 17px;
+        }
+
+        .container {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+            .container img {
+                vertical-align: middle;
+            }
+
+            .container .content {
+                position: relative;
+                bottom: 0;
+                background: rgb(0, 0, 0); /* Fallback color */
+                background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
+                color: #f1f1f1;
+                width: 100%;
+                padding: 20px;
+            }
+    </style>
+}
+
+<div class="container">
+    <img src="~/img/swim2.jpg"width="500" height="200"/>
+    <div class="content">
+        <label class="badge">@Model.category.NAME</label>
+        <h1>@Model.Tittle</h1>
+        <p>@Model.Descr</p>
+    </div>
+</div>

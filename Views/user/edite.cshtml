@@ -1,0 +1,31 @@
+﻿@using NEWS.Models
+@model user
+@{
+    ViewBag.Title = "edite";
+    Layout = "~/Views/Shared/_layout.cshtml";
+}
+
+<div class="container justify-content-around ">
+    <h2 class="col-8 text-center">Edite New User</h2>
+    <form method="post">
+        <table>
+            <tr>
+                <td>@Html.LabelFor(n => n.Name)</td>
+                <td>@Html.TextBoxFor(n => n.Name)</td>
+                <td>@Html.ValidationMessageFor(n=>n.Name)</td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(n => n.E_mail)</td>
+                <td>@Html.TextBoxFor(n => n.E_mail)</td>
+                <td>@Html.ValidationMessageFor(n=>n.E_mail)</td>
+            </tr>
+            @Html.ActionLink("change password", "changepassword")
+            <tr>
+                <td>
+                    <input type="submit" value="register" class="badge-primary col-3 offset-11" />
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+

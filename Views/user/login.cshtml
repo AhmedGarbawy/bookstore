@@ -1,0 +1,32 @@
+﻿@using NEWS.Models
+@model user
+@{
+    ViewBag.Title = "login";
+    Layout = "~/Views/Shared/_layout.cshtml";
+}
+
+<div class="container justify-content-around ">
+    <h2 class="col-8 text-center">Login</h2>
+    <form method="post">
+        <table class="table table-warning  justify-content-center">
+            <tr>
+                <td>@Html.LabelFor(n=>n.E_mail)</td>
+                <td>@Html.TextBoxFor(n=>n.E_mail)</td>
+                <td>@Html.ValidationMessageFor(n=>n.E_mail)</td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(n=>n.Password)</td>
+                <td>@Html.PasswordFor(n=>n.Password)</td>
+                <td>@Html.ValidationMessageFor(n=>n.Password)</td>
+            </tr>
+            <tr>
+                <td>@Html.CheckBox("rember") Remember me</td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" value="login" />
+                </td>
+            </tr>
+            </table>
+        </form>
+    </div>

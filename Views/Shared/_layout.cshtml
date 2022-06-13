@@ -1,0 +1,108 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <title>@ViewBag.Title</title>
+    <script src="~/Scripts/jquery-1.8.0.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+    @RenderSection("style", false)
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light bg-dark ">
+
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="nav justify-content-center">
+                <li class="nav-item active">
+
+                    @Html.ActionLink("Home", "Selectallnews", "news", null, new { @class = "nav-link" })
+
+                </li>
+                <li class="nav-item ">
+
+                    @Html.ActionLink("Political", "Selecetbycategory", "news", new { id = 3 }, new { @class = "nav-link" })
+                </li>
+                <li class="nav-item active">
+
+                    @Html.ActionLink("Economy", "Selecetbycategory", "news", new { id = 6 }, new { @class = "nav-link" })
+                </li>
+                <li class="nav-item active">
+
+                    @Html.ActionLink("Technology", "Selecetbycategory", "news", new { id = 5}, new { @class = "nav-link" })
+                </li>
+                <li class="nav-item active">
+
+                    @Html.ActionLink("Sport", "Selecetbycategory", "news", new { id = 1 }, new { @class = "nav-link" })
+                </li>
+                <li class="nav-item active">
+
+                    @Html.ActionLink("Art", "Selecetbycategory", "news", new { id = 4 }, new { @class = "nav-link" })
+                </li>
+                <li class="nav-item active">
+
+                    @Html.ActionLink("Environment", "Selecetbycategory", "news", new { id = 2 }, new { @class = "nav-link" })
+                </li>
+                <li class="nav-item active">
+
+                    @Html.ActionLink("Science", "Selecetbycategory", "news", new { id = 7 }, new { @class = "nav-link" })
+                </li>
+                @if (Session["id"] != null)
+                {
+                    <li class="nav-item active offset-1">
+                        <div class="dropdown">
+                            <button class="btn btn-outline-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Profile
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                @Html.ActionLink("Add News", "add", "news", Session["id"], new { @class = "dropdown-item" })
+                                @Html.ActionLink("News", "sellectbyuser", "news", Session["id"], new { @class = "dropdown-item" })
+                                @Html.ActionLink("Edit Profile", "edite", "user", Session["id"], new { @class = "dropdown-item" })
+
+
+
+                            </div>
+                        </div>
+                    </li>
+                }
+
+            </ul>
+        </div>
+        @if (Session["id"] != null)
+        {<button type="button" class="btn btn-outline-primary w-15">
+                @Html.ActionLink("logout", "logout", "user")
+            </button>
+
+        }
+        else
+        {
+            <button type="button" class="btn btn-outline-primary w-15">
+                @Html.ActionLink("login", "login", "user")
+
+            </button>
+            <button type="button" class="btn btn-outline-primary w-15">
+                @Html.ActionLink("Singup", "add", "user")
+
+            </button>
+        }
+    </nav>
+    <div>
+        @RenderBody()
+    </div>
+    <script src="~/bootstrap/js/jquery.js"></script>
+    <script src="~/bootstrap/js/bootstrap.bundle.js"></script>
+    <script src="~/bootstrap/js/jquery.js"></script>
+    <script src="~/Scripts/jquery-1.8.0.js"></script>
+    @RenderSection("script", false)
+</body>
+</html>
